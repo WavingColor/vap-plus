@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -89,6 +89,24 @@
 		63BAD37922F0966300EAD4C4 /* UIDevice+VAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAD37722F0966300EAD4C4 /* UIDevice+VAPUtil.m */; };
 		649EF40D24122B4D00164950 /* QGVAPMaskInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 649EF40B24122B4C00164950 /* QGVAPMaskInfo.h */; };
 		649EF40E24122B4D00164950 /* QGVAPMaskInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EF40C24122B4C00164950 /* QGVAPMaskInfo.m */; };
+		E49D3847267F734D008183F4 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3846267F734D008183F4 /* IJKMediaFramework.framework */; };
+		E49D384B267F74C6008183F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D384A267F74C6008183F4 /* AudioToolbox.framework */; };
+		E49D384D267F74CF008183F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D384C267F74CF008183F4 /* AVFoundation.framework */; };
+		E49D384F267F74DF008183F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D384E267F74DF008183F4 /* CoreGraphics.framework */; };
+		E49D3851267F74EB008183F4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3850267F74EB008183F4 /* CoreMedia.framework */; };
+		E49D3853267F74F9008183F4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3852267F74F9008183F4 /* CoreVideo.framework */; };
+		E49D3855267F750E008183F4 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3854267F7503008183F4 /* libbz2.tbd */; };
+		E49D3857267F7520008183F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3856267F751A008183F4 /* libc++.tbd */; };
+		E49D3859267F752D008183F4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3858267F7528008183F4 /* libz.tbd */; };
+		E49D385B267F753C008183F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D385A267F753C008183F4 /* MediaPlayer.framework */; };
+		E49D385D267F7545008183F4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D385C267F7545008183F4 /* MobileCoreServices.framework */; };
+		E49D385F267F754E008183F4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D385E267F754E008183F4 /* OpenGLES.framework */; platformFilter = ios; };
+		E49D3861267F755B008183F4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3860267F755B008183F4 /* QuartzCore.framework */; };
+		E49D3863267F7563008183F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3862267F7563008183F4 /* UIKit.framework */; };
+		E49D3865267F7572008183F4 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49D3864267F7572008183F4 /* VideoToolbox.framework */; };
+		E49D3869267F762A008183F4 /* IJKVAPView.h in Headers */ = {isa = PBXBuildFile; fileRef = E49D3867267F762A008183F4 /* IJKVAPView.h */; };
+		E49D386A267F762A008183F4 /* IJKVAPView.m in Sources */ = {isa = PBXBuildFile; fileRef = E49D3868267F762A008183F4 /* IJKVAPView.m */; };
+		E49D386C267F7667008183F4 /* VAPViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E49D386B267F7667008183F4 /* VAPViewProtocol.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +116,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 630723A622F0409200B15629;
 			remoteInfo = QGVAPlayer;
+		};
+		E49D3874267F784D008183F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E49D386E267F784D008183F4 /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFramework;
+		};
+		E49D3876267F784D008183F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E49D386E267F784D008183F4 /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5450B0431E63EA4300568494;
+			remoteInfo = IJKMediaFrameworkWithSSL;
+		};
+		E49D3878267F784D008183F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E49D386E267F784D008183F4 /* IJKMediaPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
+			remoteInfo = IJKMediaFrameworkTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -188,6 +227,25 @@
 		63BAD37722F0966300EAD4C4 /* UIDevice+VAPUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+VAPUtil.m"; sourceTree = "<group>"; };
 		649EF40B24122B4C00164950 /* QGVAPMaskInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QGVAPMaskInfo.h; sourceTree = "<group>"; };
 		649EF40C24122B4C00164950 /* QGVAPMaskInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QGVAPMaskInfo.m; sourceTree = "<group>"; };
+		E49D3846267F734D008183F4 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = ../Frameworks/Debug/IJKMediaFramework.framework; sourceTree = "<group>"; };
+		E49D384A267F74C6008183F4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		E49D384C267F74CF008183F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		E49D384E267F74DF008183F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		E49D3850267F74EB008183F4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		E49D3852267F74F9008183F4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		E49D3854267F7503008183F4 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/lib/libbz2.tbd; sourceTree = DEVELOPER_DIR; };
+		E49D3856267F751A008183F4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
+		E49D3858267F7528008183F4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		E49D385A267F753C008183F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/iOSSupport/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		E49D385C267F7545008183F4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		E49D385E267F754E008183F4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E49D3860267F755B008183F4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		E49D3862267F7563008183F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E49D3864267F7572008183F4 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/VideoToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		E49D3867267F762A008183F4 /* IJKVAPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKVAPView.h; sourceTree = "<group>"; };
+		E49D3868267F762A008183F4 /* IJKVAPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKVAPView.m; sourceTree = "<group>"; };
+		E49D386B267F7667008183F4 /* VAPViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPViewProtocol.h; sourceTree = "<group>"; };
+		E49D386E267F784D008183F4 /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = ../../ijkplayer/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +253,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49D384F267F74DF008183F4 /* CoreGraphics.framework in Frameworks */,
+				E49D3861267F755B008183F4 /* QuartzCore.framework in Frameworks */,
+				E49D3865267F7572008183F4 /* VideoToolbox.framework in Frameworks */,
+				E49D3855267F750E008183F4 /* libbz2.tbd in Frameworks */,
+				E49D3857267F7520008183F4 /* libc++.tbd in Frameworks */,
+				E49D3847267F734D008183F4 /* IJKMediaFramework.framework in Frameworks */,
+				E49D3863267F7563008183F4 /* UIKit.framework in Frameworks */,
+				E49D384B267F74C6008183F4 /* AudioToolbox.framework in Frameworks */,
+				E49D384D267F74CF008183F4 /* AVFoundation.framework in Frameworks */,
+				E49D385B267F753C008183F4 /* MediaPlayer.framework in Frameworks */,
+				E49D3851267F74EB008183F4 /* CoreMedia.framework in Frameworks */,
+				E49D3859267F752D008183F4 /* libz.tbd in Frameworks */,
+				E49D385D267F7545008183F4 /* MobileCoreServices.framework in Frameworks */,
+				E49D3853267F74F9008183F4 /* CoreVideo.framework in Frameworks */,
+				E49D385F267F754E008183F4 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,9 +285,11 @@
 		6307239D22F0409200B15629 = {
 			isa = PBXGroup;
 			children = (
+				E49D386E267F784D008183F4 /* IJKMediaPlayer.xcodeproj */,
 				630723A922F0409200B15629 /* QGVAPlayer */,
 				630723B422F0409200B15629 /* QGVAPlayerTests */,
 				630723A822F0409200B15629 /* Products */,
+				E49D3845267F734D008183F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,8 +324,10 @@
 		630723C122F0410600B15629 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E49D3866267F762A008183F4 /* IJKPlayer */,
 				630723AA22F0409200B15629 /* QGVAPlayer.h */,
 				6307240222F0410600B15629 /* VAPMacros.h */,
+				E49D386B267F7667008183F4 /* VAPViewProtocol.h */,
 				630723C722F0410600B15629 /* UIView+VAP.h */,
 				630723F522F0410600B15629 /* UIView+VAP.m */,
 				43BAD32025F2153500D17934 /* QGVAPWrapView.h */,
@@ -429,6 +506,47 @@
 			path = Vapx;
 			sourceTree = "<group>";
 		};
+		E49D3845267F734D008183F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E49D3864267F7572008183F4 /* VideoToolbox.framework */,
+				E49D3862267F7563008183F4 /* UIKit.framework */,
+				E49D3860267F755B008183F4 /* QuartzCore.framework */,
+				E49D385E267F754E008183F4 /* OpenGLES.framework */,
+				E49D385C267F7545008183F4 /* MobileCoreServices.framework */,
+				E49D385A267F753C008183F4 /* MediaPlayer.framework */,
+				E49D3858267F7528008183F4 /* libz.tbd */,
+				E49D3856267F751A008183F4 /* libc++.tbd */,
+				E49D3854267F7503008183F4 /* libbz2.tbd */,
+				E49D3852267F74F9008183F4 /* CoreVideo.framework */,
+				E49D3850267F74EB008183F4 /* CoreMedia.framework */,
+				E49D384E267F74DF008183F4 /* CoreGraphics.framework */,
+				E49D384C267F74CF008183F4 /* AVFoundation.framework */,
+				E49D384A267F74C6008183F4 /* AudioToolbox.framework */,
+				E49D3846267F734D008183F4 /* IJKMediaFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E49D3866267F762A008183F4 /* IJKPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E49D3867267F762A008183F4 /* IJKVAPView.h */,
+				E49D3868267F762A008183F4 /* IJKVAPView.m */,
+			);
+			path = IJKPlayer;
+			sourceTree = "<group>";
+		};
+		E49D386F267F784D008183F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E49D3875267F784D008183F4 /* IJKMediaFramework.framework */,
+				E49D3877267F784D008183F4 /* IJKMediaFrameworkWithSSL.framework */,
+				E49D3879267F784D008183F4 /* IJKMediaFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -464,6 +582,8 @@
 				6307240F22F0410600B15629 /* QGVAPSafeMutableDictionary.h in Headers */,
 				63AEB3EE231952DD0069CEBB /* QGVAPTextureLoader.h in Headers */,
 				6307242822F0410600B15629 /* QGAnimatedImageDecodeManager.h in Headers */,
+				E49D3869267F762A008183F4 /* IJKVAPView.h in Headers */,
+				E49D386C267F7667008183F4 /* VAPViewProtocol.h in Headers */,
 				6307241522F0410600B15629 /* NSNotificationCenter+VAPThreadSafe.h in Headers */,
 				6307241322F0410600B15629 /* QGVAPWeakProxy.h in Headers */,
 				6307241022F0410600B15629 /* QGVAPSafeMutableArray.h in Headers */,
@@ -546,6 +666,12 @@
 			mainGroup = 6307239D22F0409200B15629;
 			productRefGroup = 630723A822F0409200B15629 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E49D386F267F784D008183F4 /* Products */;
+					ProjectRef = E49D386E267F784D008183F4 /* IJKMediaPlayer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				630723A622F0409200B15629 /* QGVAPlayer */,
@@ -553,6 +679,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E49D3875267F784D008183F4 /* IJKMediaFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IJKMediaFramework.framework;
+			remoteRef = E49D3874267F784D008183F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E49D3877267F784D008183F4 /* IJKMediaFrameworkWithSSL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IJKMediaFrameworkWithSSL.framework;
+			remoteRef = E49D3876267F784D008183F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E49D3879267F784D008183F4 /* IJKMediaFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = IJKMediaFrameworkTests.xctest;
+			remoteRef = E49D3878267F784D008183F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		630723A522F0409200B15629 /* Resources */ = {
@@ -599,6 +749,7 @@
 				6307241D22F0410600B15629 /* QGBaseDFileInfo.m in Sources */,
 				6307243222F0410600B15629 /* UIView+VAP.m in Sources */,
 				6307242422F0410600B15629 /* QGAnimatedImageDecodeConfig.m in Sources */,
+				E49D386A267F762A008183F4 /* IJKVAPView.m in Sources */,
 				6307241222F0410600B15629 /* QGVAPSafeMutableDictionary.m in Sources */,
 				63AEB399231671260069CEBB /* QGVAPConfigManager.m in Sources */,
 				63AEB3A12316AF8A0069CEBB /* NSDictionary+VAPUtil.m in Sources */,
@@ -765,6 +916,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = ../Frameworks/Debug/;
+				HEADER_SEARCH_PATHS = ../Frameworks/Debug/;
 				INFOPLIST_FILE = QGVAPlayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -772,6 +925,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = ../Frameworks/Debug/;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.QGVAPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -789,6 +943,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = ../Frameworks/Release/;
+				HEADER_SEARCH_PATHS = ../Frameworks/Release/;
 				INFOPLIST_FILE = QGVAPlayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -796,6 +952,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = ../Frameworks/Release/;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.QGVAPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

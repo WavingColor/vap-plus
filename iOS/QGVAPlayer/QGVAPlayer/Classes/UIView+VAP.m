@@ -33,6 +33,8 @@
 #import "QGVAPConfigManager.h"
 #import "QGHWDMetalRenderer.h"
 #import "UIGestureRecognizer+VAPUtil.h"
+#import <IJKMediaFramework/IJKFFMonitor.h>
+#import "IJKVAPView.h"
 
 NSInteger const kQGHWDMP4DefaultFPS = 20;
 NSInteger const kQGHWDMP4MinFPS = 1;
@@ -56,6 +58,8 @@ NSInteger const VapMaxCompatibleVersion = 2;
 @property (nonatomic, assign) NSInteger                     hwd_repeatCount;            //播放次数；-1 表示无限循环
 @property (nonatomic, strong) QGVAPConfigManager            *hwd_configManager;             //额外的配置信息
 @property (nonatomic, strong) dispatch_queue_t              vap_renderQueue;                //播放队列
+
+@property (nonatomic, strong) IJKVAPView                     *ijkVapView;      //是否使用ijkPlayer解码，默认 YES
 
 @end
 
@@ -232,6 +236,14 @@ NSInteger const VapMaxCompatibleVersion = 2;
     [self hwd_registerNotification];
 }
 
+- (void)hwd_loadIjkCodecIfNeed:(QGHWDTextureBlendMode)mode {
+    self.ijkVapView = [IJKVAPView new];
+    __weak typeof(self) ws = self;
+    self.ijkVapView.renderFrame = ^(CVPixelBufferRef  _Nonnull frame, NSUInteger index) {
+        [ws displaypixelBuffer:frame index:index];
+    };
+}
+
 //fps策略：优先使用调用者指定的fps；若不合法则使用mp4中的数据；若还是不合法则使用默认18
 - (NSTimeInterval)hwd_appropriateDurationForFrame:(QGMP4AnimatedImageFrame *)frame {
     NSInteger fps = self.hwd_fps;
@@ -334,7 +346,9 @@ NSInteger const VapMaxCompatibleVersion = 2;
     [self hwd_loadOpenglViewIfNeed:mode];
     //metalView
     [self hwd_loadMetalViewIfNeed:mode];
-    
+    /// ijk
+    [self hwd_loadIjkCodecIfNeed:mode];
+
     if ([[UIDevice currentDevice] hwd_isSimulator]) {
         VAP_Error(kQGVAPModuleCommon, @"playHWDMP4 error! not allowed in Simulator!");
         [self stopHWDMP4];
@@ -345,11 +359,19 @@ NSInteger const VapMaxCompatibleVersion = 2;
     }
     self.hwd_decodeManager = [[QGAnimatedImageDecodeManager alloc] initWith:self.hwd_fileInfo config:self.hwd_decodeConfig delegate:self];
     [self.hwd_configManager loadConfigResources]; //必须按先加载必要资源才能播放 - onVAPConfigResourcesLoaded
+    if (self.ijk_Codec) {
+        [self.ijkVapView playHWDMP4:filePath repeatCount:-1];
+        return;
+    }
 }
 
 #pragma mark - play run
 
 - (void)hwd_renderVideoRun {
+    if (self.ijk_Codec) {
+        [self.ijkVapView play];
+        return;
+    }
     
     static NSTimeInterval durationForWaitingFrame = 16/1000.0;
     static NSTimeInterval minimumDurationForLoop = 1/1000.0;
@@ -412,14 +434,7 @@ NSInteger const VapMaxCompatibleVersion = 2;
     }
     nextFrame.duration = [self hwd_appropriateDurationForFrame:nextFrame];
     //VAP_Debug(kQGVAPModuleCommon, @"display frame:%@, has frameBuffer:%@",@(nextIndex),@(nextFrame.pixelBuffer != nil));
-    if (self.hwd_renderByOpenGL) {
-        [self.hwd_openGLView displayPixelBuffer:nextFrame.pixelBuffer];
-    } else if (self.useVapMetalView) {
-        NSArray<QGVAPMergedInfo *> *mergeInfos = self.hwd_configManager.model.mergedConfig[@(nextFrame.frameIndex)];
-        [self.vap_metalView display:nextFrame.pixelBuffer mergeInfos:mergeInfos];
-    } else {
-        [self.hwd_metalView display:nextFrame.pixelBuffer];
-    }
+    [self displaypixelBuffer:nextFrame.pixelBuffer index:nextFrame.frameIndex];
     self.hwd_currentFrameInstance = nextFrame;
     
     [self.hwd_callbackQueue addOperationWithBlock:^{
@@ -432,6 +447,17 @@ NSInteger const VapMaxCompatibleVersion = 2;
         }
     }];
     return nextFrame;
+}
+
+- (void)displaypixelBuffer:(CVPixelBufferRef)pixelBuffer index:(NSUInteger)index {
+    if (self.hwd_renderByOpenGL) {
+        [self.hwd_openGLView displayPixelBuffer:pixelBuffer];
+    } else if (self.useVapMetalView) {
+        NSArray<QGVAPMergedInfo *> *mergeInfos = self.hwd_configManager.model.mergedConfig[@(index)];
+        [self.vap_metalView display:pixelBuffer mergeInfos:mergeInfos];
+    } else {
+        [self.hwd_metalView display:pixelBuffer];
+    }
 }
 
 //结束播放
@@ -577,6 +603,8 @@ HWDSYNTH_DYNAMIC_PROPERTY_OBJECT(vap_metalView, setVap_metalView, OBJC_ASSOCIATI
 HWDSYNTH_DYNAMIC_PROPERTY_OBJECT(hwd_attachmentsModel, setHwd_attachmentsModel, OBJC_ASSOCIATION_RETAIN)
 HWDSYNTH_DYNAMIC_PROPERTY_OBJECT(hwd_configManager, setHwd_configManager, OBJC_ASSOCIATION_RETAIN)
 HWDSYNTH_DYNAMIC_PROPERTY_OBJECT(vap_renderQueue, setVap_renderQueue, OBJC_ASSOCIATION_RETAIN)
+HWDSYNTH_DYNAMIC_PROPERTY_CTYPE(ijk_Codec, setIjk_Codec, BOOL)
+HWDSYNTH_DYNAMIC_PROPERTY_OBJECT(ijkVapView, setIjkVapView, OBJC_ASSOCIATION_RETAIN)
 
 @end
 

@@ -44,6 +44,7 @@
 @property (nonatomic, strong) NSString                  *hwd_MP4FilePath;
 @property (nonatomic, assign) NSInteger                 hwd_fps;         //fps for dipslay, each frame's duration would be set by fps value before display.
 @property (nonatomic, assign) BOOL                      hwd_renderByOpenGL;      //是否使用opengl渲染，默认使用metal
+@property (nonatomic, assign) BOOL                      ijk_Codec;      //是否使用ijkPlayer解码，默认 YES
 
 - (void)playHWDMp4:(NSString *)filePath;
 - (void)playHWDMP4:(NSString *)filePath delegate:(id<HWDMP4PlayDelegate>)delegate;

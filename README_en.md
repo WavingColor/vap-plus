@@ -3,6 +3,18 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT)
 
+## vap-plus the vap project，make the ijkPlayer become the codec。
+
+### config project before all: 
+```
+cd iOS/
+sh ./init_ijk.sh
+wating..., it will downloan ijkPlayer, build ffmpeg framework.
+then select the environment you want: debug&release
+wating...
+it will open the Demo project automatic
+```
+
 VAP(Video Animation Player) is a fantastic animation player. It can play video with alpha channel.
 
 * Compared with Webp or Apng animation, it has the advantages of high compression rate (smaller material) and hardware decoding.

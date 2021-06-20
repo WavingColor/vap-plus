@@ -16,12 +16,14 @@
 #import "ViewController.h"
 #import "UIView+VAP.h"
 #import "QGVAPWrapView.h"
+#import "IJKVAPView.h"
 
 @interface ViewController () <HWDMP4PlayDelegate, VAPWrapViewDelegate>
 
 @property (nonatomic, strong) UIButton *vapButton;
 @property (nonatomic, strong) UIButton *vapxButton;
 @property (nonatomic, strong) UIButton *vapWrapViewButton;
+@property (nonatomic, strong) UIButton *ijkButton;
 
 @property (nonatomic, strong) VAPView *vapView;
 
@@ -51,7 +53,8 @@ void qg_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const 
     
     //日志
     [UIView registerHWDLog:qg_VAP_Logger_handler];
-    
+    [IJKVAPView setupIJK];
+
     //vap-经典效果
     _vapButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.frame), 90)];
     _vapButton.backgroundColor = [UIColor lightGrayColor];
@@ -72,6 +75,14 @@ void qg_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const 
     [_vapWrapViewButton setTitle:@"WrapView-ContentMode" forState:UIControlStateNormal];
     [_vapWrapViewButton addTarget:self action:@selector(playVapWithWrapView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_vapWrapViewButton];
+    
+    //ijk-效果
+    _ijkButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_vapWrapViewButton.frame)+60, CGRectGetWidth(self.view.frame), 90)];
+    _ijkButton.backgroundColor = [UIColor lightGrayColor];
+    [_ijkButton setTitle:@"ijk方案" forState:UIControlStateSelected];
+    [_ijkButton setTitle:@"videoToolBox方案" forState:UIControlStateNormal];
+    [_ijkButton addTarget:self action:@selector(playIjk) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_ijkButton];
 }
 
 #pragma mark - 各种类型的播放
@@ -80,6 +91,7 @@ void qg_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const 
     VAPView *mp4View = [[VAPView alloc] initWithFrame:CGRectMake(0, 0, 752/2, 752/2)];
     //默认使用metal渲染，使用OpenGL请打开下面这个开关
     //mp4View.renderByOpenGL = YES;
+    mp4View.ijk_Codec = self.ijkButton.isSelected;
     mp4View.center = self.view.center;
     [self.view addSubview:mp4View];
     mp4View.userInteractionEnabled = YES;
@@ -96,6 +108,7 @@ void qg_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const 
 - (void)playVapx {
     NSString *mp4Path = [NSString stringWithFormat:@"%@/Resource/vap.mp4", [[NSBundle mainBundle] resourcePath]];
     VAPView *mp4View = [[VAPView alloc] initWithFrame:self.view.bounds];
+    mp4View.ijk_Codec = self.ijkButton.isSelected;
     [self.view addSubview:mp4View];
     mp4View.center = self.view.center;
     mp4View.userInteractionEnabled = YES;
@@ -117,6 +130,10 @@ void qg_VAP_Logger_handler(VAPLogLevel level, const char* file, int line, const 
     [wrapView vapWrapView_addVapGesture:tap callback:^(UIGestureRecognizer *gestureRecognizer, BOOL insideSource, QGVAPSourceDisplayItem *source) {
         
     }];
+}
+
+- (void)playIjk {
+    self.ijkButton.selected = !self.ijkButton.isSelected;
 }
 
 #pragma mark -  mp4 hwd delegate

@@ -4,6 +4,18 @@
 
 简体中文 | [English](./README_en.md)
 
+## vap-plus 基于vap方案，引入ijkPlayer解码能力。
+
+### 项目运行配置方式： 
+```
+cd iOS/
+sh ./init_ijk.sh
+等待...，下载ijkPlayer工程，编译ffmpeg框架库
+选择需要编译的版本: debug&release
+等待配置完成
+自动打开Demo工程
+```
+
 VAP（Video Animation Player）是企鹅电竞开发，用于播放酷炫动画的实现方案。
 
 * 相比Webp, Apng动图方案，具有高压缩率(素材更小)、硬件解码(解码更快)的优点
