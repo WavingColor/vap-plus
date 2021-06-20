@@ -18,7 +18,7 @@ It will open the Demo project automatic
 To Experience, tap the last button on the first page and switch to `ijk方案`
 
 First page
-[first page](./images/start.png)
+![](./images/start.png)
 
 VAP(Video Animation Player) is a fantastic animation player. It can play video with alpha channel.
 
