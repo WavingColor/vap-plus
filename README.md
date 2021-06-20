@@ -15,7 +15,9 @@ sh ./init_ijk.sh
 等待配置完成
 自动打开Demo工程
 ```
-
+体验效果：首页最后一个tab切换到`ijk方案`
+首页展示：
+[首页](./images/start.png)
 VAP（Video Animation Player）是企鹅电竞开发，用于播放酷炫动画的实现方案。
 
 * 相比Webp, Apng动图方案，具有高压缩率(素材更小)、硬件解码(解码更快)的优点

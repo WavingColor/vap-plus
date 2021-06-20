@@ -9,11 +9,16 @@
 ```
 cd iOS/
 sh ./init_ijk.sh
-wating..., it will downloan ijkPlayer, build ffmpeg framework.
-then select the environment you want: debug&release
-wating...
-it will open the Demo project automatic
+
+Wating..., it will downloan ijkPlayer, build ffmpeg framework.
+Then select the environment you want: debug&release
+Wating...
+It will open the Demo project automatic
 ```
+To Experience, tap the last button on the first page and switch to `ijk方案`
+
+First page
+[first page](./images/start.png)
 
 VAP(Video Animation Player) is a fantastic animation player. It can play video with alpha channel.
 
